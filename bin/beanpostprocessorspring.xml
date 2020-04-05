@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+	<bean id="triangle" class="org.neeraj.beanpostprocessor.spring.Triangle" autowire="byName"/>
+
+	<bean id="pointA" class="org.neeraj.beanpostprocessor.spring.Point">
+		<property name="x" value="${pointA.pointX}" />
+		<property name="y" value="${pointA.pointY}" />
+	</bean>
+	<bean id="pointB" class="org.neeraj.beanpostprocessor.spring.Point">
+		<property name="x" value="100"></property>
+		<property name="y" value="-200"></property>
+	</bean>
+
+	<bean id="pointC" class="org.neeraj.beanpostprocessor.spring.Point">
+		<property name="x" value="200"></property>
+		<property name="y" value="100"></property>
+	</bean>
+
+<bean class="org.neeraj.beanpostprocessor.spring.MyBeanFactoryPP"/>
+<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+<property name="locations" value="pointsvalue.properties"></property>
+</bean>
+</beans>
